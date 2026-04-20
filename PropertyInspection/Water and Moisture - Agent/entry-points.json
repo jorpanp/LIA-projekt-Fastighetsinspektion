@@ -1,0 +1,87 @@
+{
+  "$schema": "https://cloud.uipath.com/draft/2024-12/entry-point",
+  "$id": "entry-points.json",
+  "entryPoints": [
+    {
+      "filePath": "/content/agent.json",
+      "type": "agent",
+      "uniqueId": "824e046d-c12f-4b66-b599-83781d611539",
+      "input": {
+        "type": "object",
+        "properties": {
+          "Findings": {
+            "type": "string",
+            "description": "Ett antal iakttagelser som kan vara relevanta för att identifiera Vatten-/fuktskador"
+          },
+          "ImageKey": {
+            "type": "string",
+            "description": "Sökväg till den analyserade bilden från lagringsbucketen."
+          },
+          "Date": {
+            "type": "string"
+          },
+          "Adress": {
+            "type": "string"
+          },
+          "PostalCode": {
+            "type": "string"
+          },
+          "ApartmentNo": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "required": [
+          "ReportHTML",
+          "EscalationInfo"
+        ],
+        "properties": {
+          "ReportHTML": {
+            "type": "string",
+            "description": "Output content"
+          },
+          "EscalationInfo": {
+            "type": "object",
+            "required": [
+              "EscalationRequired",
+              "EscalationReason",
+              "RiskLevel",
+              "AgentConfidence"
+            ],
+            "properties": {
+              "EscalationRequired": {
+                "type": "boolean",
+                "description": "Indicates if escalation is required"
+              },
+              "EscalationReason": {
+                "type": "string",
+                "description": "Reason for escalation"
+              },
+              "RiskLevel": {
+                "type": "string",
+                "description": "Risk level based on Kritikalitet",
+                "enum": [
+                  "Hög",
+                  "Medel",
+                  "Låg"
+                ]
+              },
+              "AgentConfidence": {
+                "type": "string",
+                "description": "Agent's confidence level based on LegalConfidence and Datakvalitet",
+                "enum": [
+                  "Hög",
+                  "Medel",
+                  "Låg"
+                ]
+              }
+            }
+          }
+        },
+        "title": "Outputs"
+      }
+    }
+  ]
+}

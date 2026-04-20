@@ -1,0 +1,276 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" this:Main.in_StartEvent_JsonResponse="[new Newtonsoft.Json.Linq.JObject From {  }]"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:isactr="http://schemas.uipath.com/workflow/integration-service-activities/isactr"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib"
+ xmlns:this="clr-namespace:"
+ xmlns:ucas="clr-namespace:UiPath.Core.Activities.Storage;assembly=UiPath.System.Activities"
+ xmlns:ui="http://schemas.uipath.com/workflow/activities"
+ xmlns:uiascb="clr-namespace:UiPath.IntegrationService.Activities.SWEntities.C4A95ACFAEC_v1_sub_chat_sub_completion_Create.Bundle;assembly=C4A95ACFAEC_v1_sub_c.hF4ge1zGYKL1tQp9m3XibEQ4"
+ xmlns:upr="clr-namespace:UiPath.Platform.ResourceHandling;assembly=UiPath.Platform"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="out_HasIssues" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="out_IssueCategory" Type="OutArgument(x:String)" />
+    <x:Property Name="out_Findings" Type="OutArgument(x:String)" />
+    <x:Property Name="in_StartEvent_JsonResponse" Type="InArgument(njl:JObject)" />
+    <x:Property Name="out_ImageKey" Type="OutArgument(x:String)" />
+    <x:Property Name="out_ReportID" Type="OutArgument(x:String)" />
+    <x:Property Name="out_Adress" Type="OutArgument(x:String)" />
+    <x:Property Name="out_Postalcode" Type="OutArgument(x:String)" />
+    <x:Property Name="out_ApartmentNo" Type="OutArgument(x:String)" />
+    <x:Property Name="Out_EmailStartJob" Type="OutArgument(x:String)" />
+  </x:Members>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="43">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>UiPath.Web.Activities.JSON.Models</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Dynamic</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Collections.Specialized</x:String>
+      <x:String>UiPath.Web.Activities</x:String>
+      <x:String>System.Text.Json.Nodes</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Azure.Models</x:String>
+      <x:String>UiPath.ConnectionClient</x:String>
+      <x:String>UiPath.ConnectionClient.Contracts</x:String>
+      <x:String>UiPath.Azure.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.Core.Activities.Storage</x:String>
+      <x:String>UiPath.Core.Activities.Orchestrator</x:String>
+      <x:String>UiPath.Activities.System.FileOperations</x:String>
+      <x:String>UiPath.IntegrationService.Activities.Runtime.Models.FilterBuilder</x:String>
+      <x:String>UiPath.IntegrationService.Activities.Runtime.Models</x:String>
+      <x:String>UiPath.IntegrationService.Activities.Runtime.Activities</x:String>
+      <x:String>UiPath.Platform.Activities</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.IntegrationService.Activities.SWEntities.C2B516D245C_v1_sub_chat_sub_completion_Create.Bundle</x:String>
+      <x:String>UiPath.IntegrationService.Activities.SWEntities.C4A95ACFAEC_v1_sub_chat_sub_completion_Create.Bundle</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="32">
+      <AssemblyReference>C4A95ACFAEC_v1_sub_c.hF4ge1zGYKL1tQp9m3XibEQ4</AssemblyReference>
+      <AssemblyReference>C2B516D245C_v1_sub_c.4l5k61UOd7I1tBzMH4vkgAU3</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Net.Primitives</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.IntegrationService.Activities.Runtime</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>UiPath.Azure</AssemblyReference>
+      <AssemblyReference>ConnectionClient</AssemblyReference>
+      <AssemblyReference>UiPath.Azure.Activities</AssemblyReference>
+      <AssemblyReference>System.Text.Json</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap:VirtualizedContainerService.HintSize="356,732" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="AiJsonText" />
+      <Variable x:TypeArguments="x:String" Name="CleanJsonText" />
+      <Variable x:TypeArguments="x:String" Name="TempImagePath" />
+      <Variable x:TypeArguments="upr:ILocalResource" Name="ImageResource">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="SourceIdRef">DownloadStorageFile_1</x:String>
+            <x:String x:Key="SourcePropertyName">Result</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </Variable>
+      <Variable x:TypeArguments="njl:JObject" Default="[new Newtonsoft.Json.Linq.JObject From {  }]" Name="JsonObject" />
+      <Variable x:TypeArguments="x:String" Name="JsonImageKey" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:ManualTrigger Result="{x:Null}" DisplayName="Manual Trigger" sap2010:WorkflowViewState.IdRef="ManualTrigger_1" />
+    <Assign DisplayName="Assign ReportID from StartEvent_Response" sap2010:WorkflowViewState.IdRef="Assign_9">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[out_ReportID]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[Newtonsoft.Json.Linq.JObject.Parse(Newtonsoft.Json.JsonConvert.SerializeObject(in_StartEvent_JsonResponse))("Id").ToString()]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign JsonImageKey to the out_ImageKey argument" sap2010:WorkflowViewState.IdRef="Assign_8">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[out_ImageKey]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[string.Format("{0}", JsonImageKey)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign Variable Value Adress Outgoing Argument" sap2010:WorkflowViewState.IdRef="Assign_10">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[out_Adress]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[Newtonsoft.Json.Linq.JObject.Parse(Newtonsoft.Json.JsonConvert.SerializeObject(in_StartEvent_JsonResponse))("AdressLine").ToString()]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign Variable Value PostalCode Outgoing Argument" sap2010:WorkflowViewState.IdRef="Assign_11">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[out_Postalcode]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[Newtonsoft.Json.Linq.JObject.Parse(Newtonsoft.Json.JsonConvert.SerializeObject(in_StartEvent_JsonResponse))("PostalCode").ToString()]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign Variable Value ApartmentNo Outgoing Argument" sap2010:WorkflowViewState.IdRef="Assign_12">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[out_ApartmentNo]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[Newtonsoft.Json.Linq.JObject.Parse(Newtonsoft.Json.JsonConvert.SerializeObject(in_StartEvent_JsonResponse))("ApartmentNo").ToString()]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign Variable Value Email Outgoing Argument" sap2010:WorkflowViewState.IdRef="Assign_13">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[Out_EmailStartJob]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[Newtonsoft.Json.Linq.JObject.Parse(Newtonsoft.Json.JsonConvert.SerializeObject(in_StartEvent_JsonResponse))("CreatedBy")("Email").ToString]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ucas:DownloadStorageFile Destination="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Download Image From Storage Bucket" sap2010:WorkflowViewState.IdRef="DownloadStorageFile_1" Path="[JsonImageKey]" Result="[ImageResource]" StorageBucketName="InspectionImages_1" />
+    <isactr:ConnectorActivity Configuration="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" ConnectionId="80abc2a3-4d48-4424-b4d5-364a95acfaec" DisplayName="Image Analysis" sap2010:WorkflowViewState.IdRef="ConnectorActivity_1" UiPathActivityTypeId="267d190b-590f-304a-a865-e9d3722fa772">
+      <isactr:ConnectorActivity.FieldObjects>
+        <isactr:FieldObject Name="prompt" Type="FieldArgument">
+          <isactr:FieldObject.Value>
+            <InArgument x:TypeArguments="x:String" xml:space="preserve">[string.Format("Analysera bilden och identifiera eventuella fel, brister eller avvikelser baserat enbart på synliga visuella indikatorer.{0}Dra inga slutsatser som inte direkt kan observeras i bilden.{1}{2}Klassificera resultatet som en av följande typer:{3}&lt;Fukt och Vattenskador&gt;, &lt;Elfel eller osäkra installationer&gt;, &lt;None&gt;.{4}{5}Returnera resultatet som ett strikt RFC 8259-kompatibelt JSON-objekt med EXAKT följande struktur och nycklar:{6}{7}{{{8}  ""Type"": ""&lt;klassificering&gt;"",{9}  ""IssuesFound"": &lt;true|false&gt;,{10}  ""Findings"": [{11}    ""&lt;kort, tydlig beskrivning av varje observerad avvikelse&gt;""{12}  ]{13}}}{14}{15}- ""IssuesFound"" MÅSTE vara en boolean (true eller false), inte text.{16}- ""Findings"" ska ALLTID returneras som en lista (array).{17}- Om inga avvikelser hittas:{18}  - sätt ""Type"" till ""None""{19}  - sätt ""IssuesFound"" till false{20}  - returnera en tom lista i ""Findings"": []{21}- Om en eller flera avvikelser hittas:{22}  - sätt ""IssuesFound"" till true{23}- Bedöm INTE kritikalitet, risknivå, åtgärder eller lagstiftning.{24}- Ingen text, förklaring eller kommentar får förekomma utanför JSON-objektet.", Environment.NewLine, Environment.NewLine, Environment.NewLine, Environment.NewLine, Environment.NewLine, Environment.NewLine, Environment.NewLine, Environment.NewLine, Environment.NewLine, Environment.NewLine, Environment.NewLine, Environment.NewLine, Environment.NewLine, Environment.NewLine, Environment.NewLine, Environment.NewLine, Environment.NewLine, Environment.NewLine, Environment.NewLine, Environment.NewLine, Environment.NewLine, Environment.NewLine, Environment.NewLine, Environment.NewLine, Environment.NewLine)]</InArgument>
+          </isactr:FieldObject.Value>
+        </isactr:FieldObject>
+        <isactr:FieldObject Name="image_type" Type="FieldArgument">
+          <isactr:FieldObject.Value>
+            <InArgument x:TypeArguments="x:String">File</InArgument>
+          </isactr:FieldObject.Value>
+        </isactr:FieldObject>
+        <isactr:FieldObject Name="image_url" Type="FieldArgument" />
+        <isactr:FieldObject Name="_file" Type="FieldArgument">
+          <isactr:FieldObject.Value>
+            <InArgument x:TypeArguments="upr:IResource">[ImageResource]</InArgument>
+          </isactr:FieldObject.Value>
+        </isactr:FieldObject>
+        <isactr:FieldObject Name="topK" Type="FieldArgument" />
+        <isactr:FieldObject Name="topP" Type="FieldArgument" />
+        <isactr:FieldObject Name="top_p" Type="FieldArgument">
+          <isactr:FieldObject.Value>
+            <InArgument x:TypeArguments="x:Int64">1</InArgument>
+          </isactr:FieldObject.Value>
+        </isactr:FieldObject>
+        <isactr:FieldObject Name="modelName" Type="FieldArgument">
+          <isactr:FieldObject.Value>
+            <InArgument x:TypeArguments="x:String">anthropic.claude-3-5-sonnet-20241022-v2:0</InArgument>
+          </isactr:FieldObject.Value>
+        </isactr:FieldObject>
+        <isactr:FieldObject Name="max_tokens" Type="FieldArgument" />
+        <isactr:FieldObject Name="temperature" Type="FieldArgument">
+          <isactr:FieldObject.Value>
+            <InArgument x:TypeArguments="x:Double">0</InArgument>
+          </isactr:FieldObject.Value>
+        </isactr:FieldObject>
+        <isactr:FieldObject Name="frequency_penalty" Type="FieldArgument">
+          <isactr:FieldObject.Value>
+            <InArgument x:TypeArguments="x:Int64">0</InArgument>
+          </isactr:FieldObject.Value>
+        </isactr:FieldObject>
+        <isactr:FieldObject Name="presence_penalty" Type="FieldArgument">
+          <isactr:FieldObject.Value>
+            <InArgument x:TypeArguments="x:Int64">0</InArgument>
+          </isactr:FieldObject.Value>
+        </isactr:FieldObject>
+        <isactr:FieldObject Name="n" Type="FieldArgument">
+          <isactr:FieldObject.Value>
+            <InArgument x:TypeArguments="x:Int64">1</InArgument>
+          </isactr:FieldObject.Value>
+        </isactr:FieldObject>
+        <isactr:FieldObject Name="_stop" Type="FieldArgument" />
+        <isactr:FieldObject Name="out_text" Type="FieldArgument">
+          <isactr:FieldObject.Value>
+            <OutArgument x:TypeArguments="x:String">[AiJsonText]</OutArgument>
+          </isactr:FieldObject.Value>
+        </isactr:FieldObject>
+        <isactr:FieldObject Name="Jit_v1_sub_chat_sub_completion" Type="FieldArgument">
+          <isactr:FieldObject.Value>
+            <OutArgument x:TypeArguments="uiascb:v1_sub_chat_sub_completion_Create" />
+          </isactr:FieldObject.Value>
+        </isactr:FieldObject>
+      </isactr:ConnectorActivity.FieldObjects>
+    </isactr:ConnectorActivity>
+    <Assign DisplayName="Assign Extracted Text After First &quot;{&quot;" sap2010:WorkflowViewState.IdRef="Assign_4">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[CleanJsonText]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[AiJsonText.Substring(AiJsonText.IndexOf("{"))]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:DeserializeJson x:TypeArguments="njl:JObject" JsonSample="{x:Null}" Settings="{x:Null}" DisplayName="Deserialize JSON" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[JsonObject]" JsonString="[string.Format(&quot;{0}&quot;, CleanJsonText)]" />
+    <Assign DisplayName="Assign Type of Issue to Outgoing Argument" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[out_IssueCategory]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[JsonObject("Type").ToString]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign Variable Value" sap2010:WorkflowViewState.IdRef="Assign_6">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[out_Findings]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[jsonObject("Findings").ToString]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign If There Are Issues To Outgoing Argument" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Boolean">[out_HasIssues]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Boolean">[CBool(JsonObject("IssuesFound"))]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:LogMessage DisplayName="Log Message Category" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Category: &quot; + out_IssueCategory]" />
+    <ui:LogMessage DisplayName="Log Message Has Issues" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Has Issues: &quot; + out_HasIssues.ToString]" />
+    <ui:LogMessage DisplayName="Log Message Findings" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Findings: &quot; + out_Findings]" />
+  </Sequence>
+</Activity>

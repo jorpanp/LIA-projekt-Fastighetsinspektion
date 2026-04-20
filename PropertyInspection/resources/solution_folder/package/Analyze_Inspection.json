@@ -1,0 +1,26 @@
+{
+  "docVersion": "1.0.0",
+  "resource": {
+    "name": "Analyze Inspection",
+    "kind": "package",
+    "apiVersion": "orchestrator.uipath.com/v1",
+    "projectKey": "085634d7-39c9-4a27-834c-9a56d0b191cf",
+    "isOverridable": true,
+    "dependencies": [],
+    "runtimeDependencies": [],
+    "files": [],
+    "folders": [
+      {
+        "fullyQualifiedName": "solution_folder"
+      }
+    ],
+    "spec": {
+      "fileName": null,
+      "fileReference": null,
+      "name": "Analyze Inspection",
+      "description": null
+    },
+    "locks": [],
+    "key": "7271d61e-d4e0-4cc9-9ccc-e3860dd12686"
+  }
+}

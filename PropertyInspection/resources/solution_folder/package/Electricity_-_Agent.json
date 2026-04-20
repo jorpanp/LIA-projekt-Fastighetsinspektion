@@ -1,0 +1,26 @@
+{
+  "docVersion": "1.0.0",
+  "resource": {
+    "name": "Electricity - Agent",
+    "kind": "package",
+    "apiVersion": "orchestrator.uipath.com/v1",
+    "projectKey": "4dc01f7f-bb19-4a38-830f-64a4264e0d05",
+    "isOverridable": true,
+    "dependencies": [],
+    "runtimeDependencies": [],
+    "files": [],
+    "folders": [
+      {
+        "fullyQualifiedName": "solution_folder"
+      }
+    ],
+    "spec": {
+      "fileName": null,
+      "fileReference": null,
+      "name": "Electricity - Agent",
+      "description": null
+    },
+    "locks": [],
+    "key": "db2e96a7-5b30-4b42-bd40-6a977e918bac"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://cloud.uipath.com/draft/2024-12/entry-point",
+  "$id": "entry-points.json",
+  "entryPoints": [
+    {
+      "filePath": "Main.xaml",
+      "uniqueId": "23a0580f-adbe-42e0-8766-e91e75cf0163",
+      "type": "Process",
+      "input": {
+        "type": "object",
+        "properties": {
+          "in_StartEvent_JsonResponse": {
+            "type": "object",
+            "additionalProperties": true,
+            "x-default-expression": "new Newtonsoft.Json.Linq.JObject From {  }"
+          }
+        },
+        "required": []
+      },
+      "output": {
+        "type": "object",
+        "properties": {
+          "out_HasIssues": {
+            "type": "boolean"
+          },
+          "out_IssueCategory": {
+            "type": "string"
+          },
+          "out_Findings": {
+            "type": "string"
+          },
+          "out_ImageKey": {
+            "type": "string"
+          },
+          "out_ReportID": {
+            "type": "string"
+          },
+          "out_Adress": {
+            "type": "string"
+          },
+          "out_Postalcode": {
+            "type": "string"
+          },
+          "out_ApartmentNo": {
+            "type": "string"
+          },
+          "Out_EmailStartJob": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  ]
+}

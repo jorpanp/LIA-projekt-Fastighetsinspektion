@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:uipath="http://uipath.org/schema/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="x-uipath-initial-diagram" targetNamespace="http://www.omg.org/spec/BPMN/20100524/MODEL" exporter="UiPath Studio Web (https://uipath.com)" exporterVersion="7cea8960">
+  <bpmn:process id="Process_1" name="MainFlow" isExecutable="false">
+    <bpmn:extensionElements>
+      <uipath:variables version="v1">
+        <uipath:inputOutput id="action" name="Action" type="string" elementId="Activity_ueNp8g" />
+        <uipath:inputOutput id="error5" name="Error" type="jsonSchema" elementId="Activity_ueNp8g"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="humanAssesment" name="HumanAssesment" type="string" elementId="Activity_ueNp8g" />
+        <uipath:inputOutput id="decisionComment" name="DecisionComment" type="string" elementId="Activity_ueNp8g" />
+        <uipath:inputOutput id="humanReviewReportHtml" name="HumanReviewReportHTML" type="string" elementId="Activity_ueNp8g" />
+        <uipath:inputOutput id="error3" name="Error" type="jsonSchema" elementId="Activity_dsbURm"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="reportHtml" name="ReportHTML" type="string" elementId="Activity_dsbURm" />
+        <uipath:inputOutput id="escalationInfo" name="EscalationInfo" type="jsonSchema" elementId="Activity_dsbURm"><![CDATA[{"type":"object","properties":{"EscalationRequired":{"type":"boolean","description":"Indicates if escalation is required"},"EscalationReason":{"type":"string","description":"Reason for escalation"},"RiskLevel":{"type":"string","description":"Risk level based on Kritikalitet","enum":["Hög","Medel","Låg"]},"AgentConfidence":{"type":"string","description":"Agent's confidence level based on LegalConfidence and Datakvalitet","enum":["Hög","Medel","Låg"]}},"$schema":"http://json-schema.org/draft-07/schema#"}]]></uipath:inputOutput>
+        <uipath:inputOutput id="error4" name="Error" type="jsonSchema" elementId="Activity_qg4FkK"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="reportHtml2" name="ReportHTML" type="string" elementId="Activity_qg4FkK" />
+        <uipath:inputOutput id="id2" name="id" type="string" elementId="Activity_izL6AS" />
+        <uipath:inputOutput id="response2" name="response" type="jsonSchema" elementId="Activity_izL6AS"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"Importance":{"title":"Importance","type":"string","description":"The importance of the mail"},"id":{"title":"Id","type":"string"},"labelIds[*]":{"title":"Label ids","type":"string"},"threadId":{"title":"Thread ID","type":"string"}},"definitions":{}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="error2" name="Error" type="jsonSchema" elementId="Activity_h38PfQ"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="outHasIssues" name="out_HasIssues" type="boolean" elementId="Activity_h38PfQ" />
+        <uipath:inputOutput id="outIssueCategory" name="out_IssueCategory" type="string" elementId="Activity_h38PfQ" />
+        <uipath:inputOutput id="outFindings" name="out_Findings" type="string" elementId="Activity_h38PfQ" />
+        <uipath:inputOutput id="outImageKey" name="out_ImageKey" type="string" elementId="Activity_h38PfQ" />
+        <uipath:inputOutput id="outReportId" name="out_ReportID" type="string" elementId="Activity_h38PfQ" />
+        <uipath:inputOutput id="outAdress" name="out_Adress" type="string" elementId="Activity_h38PfQ" />
+        <uipath:inputOutput id="outPostalcode" name="out_Postalcode" type="string" elementId="Activity_h38PfQ" />
+        <uipath:inputOutput id="outApartmentNo" name="out_ApartmentNo" type="string" elementId="Activity_h38PfQ" />
+        <uipath:inputOutput id="outEmailStartJob" name="Out_EmailStartJob" type="string" elementId="Activity_h38PfQ" />
+        <uipath:inputOutput id="error6" name="Error" type="jsonSchema" elementId="Event_nefqeU"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
+      </uipath:variables>
+      <uipath:bindings version="v1">
+        <uipath:binding id="b5U6IlKzJ" name="folderPath" type="string" resource="process" resourceKey="Analyze Inspection" propertyAttribute="folderPath" />
+        <uipath:binding id="biJ28t6p3" name="name" type="string" default="Analyze Inspection" resource="process" resourceKey="Analyze Inspection" propertyAttribute="name" />
+        <uipath:binding id="bmuvOuy7u" name="folderPath" type="string" resource="process" resourceKey="Find or Create Property" propertyAttribute="folderPath" />
+        <uipath:binding id="bzjPjS1RO" name="name" type="string" default="Find or Create Property" resource="process" resourceKey="Find or Create Property" propertyAttribute="name" />
+        <uipath:binding id="b1gt2I3pm" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="Water and Moisture - Agent" propertyAttribute="folderPath" />
+        <uipath:binding id="b4vf7fzdt" name="name" type="string" default="Water and Moisture - Agent" resource="process" resourceSubType="Agent" resourceKey="Water and Moisture - Agent" propertyAttribute="name" />
+        <uipath:binding id="bfMitLsSm" name="folderPath" type="string" resource="process" resourceKey="Create or Find Property" propertyAttribute="folderPath" />
+        <uipath:binding id="boAqH9MBW" name="name" type="string" default="Create or Find Property" resource="process" resourceKey="Create or Find Property" propertyAttribute="name" />
+        <uipath:binding id="b8cfvi1DE" name="folderPath" type="string" resource="process" resourceKey="Recieve Inspection Data" propertyAttribute="folderPath" />
+        <uipath:binding id="bUMjECi3D" name="name" type="string" default="Recieve Inspection Data" resource="process" resourceKey="Recieve Inspection Data" propertyAttribute="name" />
+        <uipath:binding id="bqh4DeCYV" name="folderPath" type="string" resource="process" resourceKey="Find or Create Property_1" propertyAttribute="folderPath" />
+        <uipath:binding id="bYkKmQRJr" name="name" type="string" default="Find or Create Property_1" resource="process" resourceKey="Find or Create Property_1" propertyAttribute="name" />
+        <uipath:binding id="bXP9oNLgT" name="uipath-uipath-dataservice connection" type="string" default="5908e47e-a08a-48d6-90a8-df9ab70fd745" resource="Connection" resourceKey="5908e47e-a08a-48d6-90a8-df9ab70fd745" propertyAttribute="ConnectionId" />
+        <uipath:binding id="bljcPSv97" name="FolderKey" type="string" default="1a2c0822-d27b-4f80-b68a-cff5eaab795f" resource="Connection" resourceKey="5908e47e-a08a-48d6-90a8-df9ab70fd745" propertyAttribute="folderKey" />
+        <uipath:binding id="bDNfVGWk8" name="uipath-uipath-dataservice connection" type="string" default="587d33e2-4f1d-4232-a33d-c0b202f0cedf" resource="Connection" resourceKey="587d33e2-4f1d-4232-a33d-c0b202f0cedf" propertyAttribute="ConnectionId" />
+        <uipath:binding id="b26U6A9ZC" name="FolderKey" type="string" default="67c81c76-bb49-49f3-91a8-324dd01fbb23" resource="Connection" resourceKey="587d33e2-4f1d-4232-a33d-c0b202f0cedf" propertyAttribute="folderKey" />
+        <uipath:binding id="bUqaHVYOd" name="uipath-uipath-dataservice connection" type="string" default="4f7521f7-3faa-43e2-a1ea-d947730ed8e8" resource="Connection" resourceKey="4f7521f7-3faa-43e2-a1ea-d947730ed8e8" propertyAttribute="ConnectionId" />
+        <uipath:binding id="bebhccbyd" name="FolderKey" type="string" default="67c81c76-bb49-49f3-91a8-324dd01fbb23" resource="Connection" resourceKey="4f7521f7-3faa-43e2-a1ea-d947730ed8e8" propertyAttribute="folderKey" />
+        <uipath:binding id="bt3zwSUOW" name="uipath-uipath-dataservice connection" type="string" default="43d3b17c-5cb7-40f3-80fd-5961b46287f2" resource="Connection" resourceKey="43d3b17c-5cb7-40f3-80fd-5961b46287f2" propertyAttribute="ConnectionId" />
+        <uipath:binding id="bqASV6QXe" name="FolderKey" type="string" default="67c81c76-bb49-49f3-91a8-324dd01fbb23" resource="Connection" resourceKey="43d3b17c-5cb7-40f3-80fd-5961b46287f2" propertyAttribute="folderKey" />
+        <uipath:binding id="bThCAaZCZ" name="uipath-uipath-dataservice connection" type="string" default="9cc4ddb0-a90d-4907-a9ae-81330eb43b2d" resource="Connection" resourceKey="9cc4ddb0-a90d-4907-a9ae-81330eb43b2d" propertyAttribute="ConnectionId" />
+        <uipath:binding id="bG2ZFgzVJ" name="FolderKey" type="string" default="67c81c76-bb49-49f3-91a8-324dd01fbb23" resource="Connection" resourceKey="9cc4ddb0-a90d-4907-a9ae-81330eb43b2d" propertyAttribute="folderKey" />
+        <uipath:binding id="b1KXGTC95" name="folderPath" type="string" resource="process" resourceKey="Get Datafabric Info" propertyAttribute="folderPath" />
+        <uipath:binding id="bVGBtrODJ" name="name" type="string" default="Get Datafabric Info" resource="process" resourceKey="Get Datafabric Info" propertyAttribute="name" />
+        <uipath:binding id="bJgoxWfCN" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="Electricity - Agent" propertyAttribute="folderPath" />
+        <uipath:binding id="bpIqtrPn8" name="name" type="string" default="Electricity - Agent" resource="process" resourceSubType="Agent" resourceKey="Electricity - Agent" propertyAttribute="name" />
+        <uipath:binding id="bFAuukHMX" name="folderPath" type="string" resource="process" resourceKey="Send Report As Mail" propertyAttribute="folderPath" />
+        <uipath:binding id="bM9iXzEkE" name="name" type="string" default="Send Report As Mail" resource="process" resourceKey="Send Report As Mail" propertyAttribute="name" />
+        <uipath:binding id="bEXdKTwa8" name="uipath-google-gmail connection" type="string" default="6d8a3b8d-a1be-455a-a987-127183e9f716" resource="Connection" resourceKey="6d8a3b8d-a1be-455a-a987-127183e9f716" propertyAttribute="ConnectionId" />
+        <uipath:binding id="brQemvLUz" name="FolderKey" type="string" default="914827c5-4230-4b31-a3dc-81907e8eee8d" resource="Connection" resourceKey="6d8a3b8d-a1be-455a-a987-127183e9f716" propertyAttribute="folderKey" />
+        <uipath:binding id="bkDLyt6Cm" name="uipath-google-gmail connection" type="string" default="35d6deab-a255-4549-9800-374c5e467938" resource="Connection" resourceKey="35d6deab-a255-4549-9800-374c5e467938" propertyAttribute="ConnectionId" />
+        <uipath:binding id="bkb5Q8Zd4" name="FolderKey" type="string" default="67c81c76-bb49-49f3-91a8-324dd01fbb23" resource="Connection" resourceKey="35d6deab-a255-4549-9800-374c5e467938" propertyAttribute="folderKey" />
+        <uipath:binding id="b5fnjAmIS" name="folderPath" type="string" resource="process" resourceKey="Update Entity With Report" propertyAttribute="folderPath" />
+        <uipath:binding id="bKXoYhv27" name="name" type="string" default="Update Entity With Report" resource="process" resourceKey="Update Entity With Report" propertyAttribute="name" />
+        <uipath:binding id="bYstuCXCH" name="uipath-uipath-dataservice connection" type="string" default="dadbf4ef-ed7b-4fbc-a166-f7d4bbbd1991" resource="Connection" resourceKey="dadbf4ef-ed7b-4fbc-a166-f7d4bbbd1991" propertyAttribute="ConnectionId" />
+        <uipath:binding id="bP2BG6bW2" name="FolderKey" type="string" default="67c81c76-bb49-49f3-91a8-324dd01fbb23" resource="Connection" resourceKey="dadbf4ef-ed7b-4fbc-a166-f7d4bbbd1991" propertyAttribute="folderKey" />
+        <uipath:binding id="bMZbL4k0d" name="folderPath" type="string" resource="app" resourceKey="PropertyinspectorEscalationApp" propertyAttribute="folderPath" />
+        <uipath:binding id="bzBL1hnfr" name="name" type="string" default="PropertyinspectorEscalationApp" resource="app" resourceKey="PropertyinspectorEscalationApp" propertyAttribute="name" />
+        <uipath:binding id="b7RjVBfKf" name="folderPath" type="string" resource="app" resourceKey="EscalationAppPropertyInspection" propertyAttribute="folderPath" />
+        <uipath:binding id="bT0nOSDEf" name="name" type="string" default="EscalationAppPropertyInspection" resource="app" resourceKey="EscalationAppPropertyInspection" propertyAttribute="name" />
+        <uipath:binding id="bW75G1QL4" name="uipath-google-gmail connection" type="string" default="683c1b7f-c81e-45a5-a002-a05b109082ac" resource="Connection" resourceKey="683c1b7f-c81e-45a5-a002-a05b109082ac" propertyAttribute="ConnectionId" />
+        <uipath:binding id="bhoCqPjys" name="FolderKey" type="string" default="67c81c76-bb49-49f3-91a8-324dd01fbb23" resource="Connection" resourceKey="683c1b7f-c81e-45a5-a002-a05b109082ac" propertyAttribute="folderKey" />
+        <uipath:binding id="bODBtSRlQ" name="folderPath" type="string" resource="process" resourceKey="Recieve Inspection" propertyAttribute="folderPath" />
+        <uipath:binding id="bfqljetae" name="name" type="string" default="Recieve Inspection" resource="process" resourceKey="Recieve Inspection" propertyAttribute="name" />
+      </uipath:bindings>
+      <uipath:migrationVersion version="13" />
+    </bpmn:extensionElements>
+    <bpmn:exclusiveGateway id="Gateway_cDkTZP" name="Issue Identified?">
+      <bpmn:incoming>edge_eRGxks</bpmn:incoming>
+      <bpmn:outgoing>edge_k2gNUr</bpmn:outgoing>
+      <bpmn:outgoing>edge_Gateway_cDkTZP-Gateway_g3MwnL</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="Activity_ueNp8g" name="Human Review">
+      <bpmn:extensionElements>
+        <uipath:activity version="v1">
+          <uipath:type value="Actions.HITL" version="v2" />
+          <uipath:context>
+            <uipath:input name="name" type="string" value="=bindings.bzBL1hnfr" />
+            <uipath:input name="folderPath" type="string" value="=bindings.bMZbL4k0d" />
+            <uipath:input name="_label" type="string" value="PropertyinspectorEscalationApp" />
+            <uipath:input name="taskTitle" type="string" value="&#34;Rapport - Fastighetsinspektion&#34; " />
+            <uipath:input name="recipient" type="json" />
+            <uipath:input name="priority" type="string" />
+            <uipath:input name="labels" type="string" />
+            <uipath:input name="actionCatalogName" type="string" />
+            <uipath:input name="enableActionableNotifications" type="boolean" value="false" />
+            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"AgentReport":{"type":"string"},"EscalationReason":{"type":"string"},"RiskLevel":{"type":"string"},"AgentConfidence":{"type":"string"},"ReportHTML":{"type":"string"},"ImageKey":{"type":"string"},"Adress":{"type":"string"},"PostalCode":{"type":"string"},"ApartmentNo":{"type":"string"}},"required":[]}]]></uipath:inputSchema>
+          </uipath:context>
+          <uipath:input name="HitlTaskArguments" type="json" target="bodyField"><![CDATA[{"AgentReport":"\"Ingen avvikelse identifierades av den automatiserade analysen. Ärendet har skickats vidare för manuell verifiering.\" ","EscalationReason":"\"Automatiserad analys identifierade inga fel. Manuell granskning krävs för att säkerställa att inga avvikelser har missats.\" ","RiskLevel":"\"Låg\"","AgentConfidence":"\"Medel\"","ReportHTML":null,"ImageKey":"=vars.outImageKey","Adress":"=vars.outAdress","PostalCode":"=vars.outPostalcode","ApartmentNo":"=vars.outApartmentNo"}]]></uipath:input>
+          <uipath:output name="Action" type="string" source="=Action" var="action" />
+          <uipath:output name="Error" type="jsonSchema" source="=Error" var="error5" />
+          <uipath:output name="HumanAssesment" type="string" source="=HumanAssesment" var="humanAssesment" />
+          <uipath:output name="DecisionComment" type="string" source="=DecisionComment" var="decisionComment" />
+          <uipath:output name="HumanReviewReportHTML" type="string" source="=HumanReviewReportHTML" var="humanReviewReportHtml" />
+        </uipath:activity>
+      </bpmn:extensionElements>
+      <bpmn:incoming>edge_k2gNUr</bpmn:incoming>
+      <bpmn:outgoing>edge_ARBB92</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_g3MwnL" name="Type?">
+      <bpmn:incoming>edge_Gateway_cDkTZP-Gateway_g3MwnL</bpmn:incoming>
+      <bpmn:outgoing>edge_Gateway_g3MwnL-Activity_dsbURm</bpmn:outgoing>
+      <bpmn:outgoing>edge_Gateway_g3MwnL-Activity_qg4FkK</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:serviceTask id="Activity_dsbURm" name="Water Related Issues - Agent">
+      <bpmn:extensionElements>
+        <uipath:activity version="v1">
+          <uipath:type value="Orchestrator.StartAgentJob" version="v2" />
+          <uipath:context>
+            <uipath:input name="name" type="string" value="=bindings.b4vf7fzdt" />
+            <uipath:input name="folderPath" type="string" value="=bindings.b1gt2I3pm" />
+            <uipath:input name="_label" type="string" value="Vatten och Fuktskador Agent" />
+            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"Findings":{"type":"string"},"ImageKey":{"type":"string"},"Date":{"type":"string"},"Adress":{"type":"string"},"PostalCode":{"type":"string"},"ApartmentNo":{"type":"string"}},"required":[]}]]></uipath:inputSchema>
+          </uipath:context>
+          <uipath:input name="JobArguments" type="json" target="bodyField"><![CDATA[{"Findings":"=vars.outFindings","ImageKey":"=vars.outImageKey","Date":"=DateTime.Now.ToString(\"yyyy-MM-dd\")","Adress":"=vars.outAdress","PostalCode":"=vars.outPostalcode","ApartmentNo":"=vars.outApartmentNo"}]]></uipath:input>
+          <uipath:output name="Error" type="jsonSchema" source="=Error" var="error3" />
+          <uipath:output name="ReportHTML" type="string" source="=ReportHTML" var="reportHtml" />
+          <uipath:output name="EscalationInfo" type="jsonSchema" source="=EscalationInfo" var="escalationInfo" />
+        </uipath:activity>
+      </bpmn:extensionElements>
+      <bpmn:incoming>edge_Gateway_g3MwnL-Activity_dsbURm</bpmn:incoming>
+      <bpmn:outgoing>edge_PA5zyO</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_qg4FkK" name="Electricity Related Issues - Agent">
+      <bpmn:extensionElements>
+        <uipath:activity version="v1">
+          <uipath:type value="Orchestrator.StartAgentJob" version="v2" />
+          <uipath:context>
+            <uipath:input name="name" type="string" value="=bindings.bpIqtrPn8" />
+            <uipath:input name="folderPath" type="string" value="=bindings.bJgoxWfCN" />
+            <uipath:input name="_label" type="string" value="Electricity - Agent" />
+            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"Findings":{"type":"string"},"Date":{"type":"string"},"ImageKey":{"type":"string"},"Adress":{"type":"string"},"PostalCode":{"type":"string"},"ApartmentNo":{"type":"string"}},"required":[]}]]></uipath:inputSchema>
+          </uipath:context>
+          <uipath:input name="JobArguments" type="json" target="bodyField"><![CDATA[{"Findings":"=vars.outFindings","Date":"=DateTime.Now.ToString(\"yyyy-MM-dd\")","ImageKey":"=vars.outImageKey","Adress":"=vars.outAdress","PostalCode":"=vars.outPostalcode","ApartmentNo":"=vars.outApartmentNo"}]]></uipath:input>
+          <uipath:output name="Error" type="jsonSchema" source="=Error" var="error4" />
+          <uipath:output name="ReportHTML" type="string" source="=ReportHTML" var="reportHtml2" />
+        </uipath:activity>
+      </bpmn:extensionElements>
+      <bpmn:incoming>edge_Gateway_g3MwnL-Activity_qg4FkK</bpmn:incoming>
+      <bpmn:outgoing>edge_7arNOR</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_h38PfQ" name="Analyze Inspection">
+      <bpmn:extensionElements>
+        <uipath:activity version="v1">
+          <uipath:type value="Orchestrator.StartJob" version="v2" />
+          <uipath:context>
+            <uipath:input name="name" type="string" value="=bindings.biJ28t6p3" />
+            <uipath:input name="folderPath" type="string" value="=bindings.b5U6IlKzJ" />
+            <uipath:input name="_label" type="string" value="Analyze Inspection" />
+            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"in_StartEvent_JsonResponse":{"type":"object"}},"required":[]}]]></uipath:inputSchema>
+          </uipath:context>
+          <uipath:input name="JobArguments" type="json" target="bodyField"><![CDATA[{"in_StartEvent_JsonResponse":"=vars.response3"}]]></uipath:input>
+          <uipath:output name="Error" type="jsonSchema" source="=Error" var="error2" />
+          <uipath:output name="out_HasIssues" type="boolean" source="=out_HasIssues" var="outHasIssues" />
+          <uipath:output name="out_IssueCategory" type="string" source="=out_IssueCategory" var="outIssueCategory" />
+          <uipath:output name="out_Findings" type="string" source="=out_Findings" var="outFindings" />
+          <uipath:output name="out_ImageKey" type="string" source="=out_ImageKey" var="outImageKey" />
+          <uipath:output name="out_ReportID" type="string" source="=out_ReportID" var="outReportId" />
+          <uipath:output name="out_Adress" type="string" source="=out_Adress" var="outAdress" />
+          <uipath:output name="out_Postalcode" type="string" source="=out_Postalcode" var="outPostalcode" />
+          <uipath:output name="out_ApartmentNo" type="string" source="=out_ApartmentNo" var="outApartmentNo" />
+          <uipath:output name="Out_EmailStartJob" type="string" source="=Out_EmailStartJob" var="outEmailStartJob" />
+        </uipath:activity>
+      </bpmn:extensionElements>
+      <bpmn:incoming>edge_4gytxb</bpmn:incoming>
+      <bpmn:outgoing>edge_eRGxks</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="Event_cY6hFl" name="End Event">
+      <bpmn:incoming>edge_4vcqma</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sendTask id="Activity_izL6AS" name="Send Report As Mail">
+      <bpmn:extensionElements>
+        <uipath:activity version="v1">
+          <uipath:type value="Intsvc.ActivityExecution" version="v1" />
+          <uipath:context>
+            <uipath:input name="connectorKey" type="string" value="uipath-google-gmail" />
+            <uipath:input name="operation" type="string" value="SendEmail" />
+            <uipath:input name="objectName" type="string" value="SendEmail" />
+            <uipath:input name="method" type="string" value="POST" />
+            <uipath:input name="path" type="string" value="/SendEmail" />
+            <uipath:input name="connection" type="string" value="=bindings.bW75G1QL4" />
+            <uipath:input name="folderKey" type="string" value="=bindings.bhoCqPjys" />
+            <uipath:input name="resourceKey" type="string" value="683c1b7f-c81e-45a5-a002-a05b109082ac" />
+            <uipath:input name="metadata" type="json"><![CDATA[{"designTimeMetadata":{"connectorLogoUrl":"https://cloud.uipath.com/elements_/scaleunit_/a6827719-5651-4da8-a093-6b3e05f247c7/v3/element/elements/uipath-google-gmail/image","activityDesignerVersion":"2","activityDisplayName":"Send Email","activityDescription":"Sends an email message","activityHelpUrlTemplate":"https://docs.uipath.com/{0}/activities/other/latest/integration-service/uipath-google-gmail-Send-Email","activityConfig":{"isCurated":true,"operation":null}},"metadataState":{"jsonSchema":{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"Importance":{"title":"Importance","type":"string","description":"The importance of the mail"},"id":{"title":"Id","type":"string"},"labelIds[*]":{"title":"Label ids","type":"string"},"threadId":{"title":"Thread ID","type":"string"}},"definitions":{}}},"telemetryData":{"operationType":"Create","objectName":"SendEmail","objectDisplayName":"Email","connectorKey":"uipath-google-gmail","connectorName":"Gmail","primaryKeyName":"id"},"inputMetadata":{"type":"multipart","multipart":{"bodyFieldName":"body"}},"errorState":{"hasError":false}}]]></uipath:input>
+            <uipath:input name="activityConfigurationVersion" type="string" value="v1" />
+          </uipath:context>
+          <uipath:input name="SaveAsDraft" type="string" value="false" target="query" />
+          <uipath:input name="body" type="json" target="body"><![CDATA[{"Importance":"normal","To":"=vars.outEmailStartJob","Subject":"Rapport - Fastighetsinspektion","Body":"=string.Format(\"{0}{1}{2}\", vars.reportHtml2, vars.reportHtml, vars.humanReviewReportHtml)"}]]></uipath:input>
+          <uipath:output name="id" type="string" source="=response.id" var="id2" />
+          <uipath:output name="response" type="jsonSchema" source="=response" var="response2" />
+        </uipath:activity>
+      </bpmn:extensionElements>
+      <bpmn:incoming>edge_PA5zyO</bpmn:incoming>
+      <bpmn:incoming>edge_7arNOR</bpmn:incoming>
+      <bpmn:incoming>edge_ARBB92</bpmn:incoming>
+      <bpmn:outgoing>edge_4vcqma</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:startEvent id="Event_nefqeU">
+      <bpmn:extensionElements>
+        <uipath:entryPointId value="bf2be07f-73f1-4e9d-ad02-3d5bb270cff1" />
+        <uipath:event version="v1">
+          <uipath:type value="Intsvc.EventTrigger" version="v1" />
+          <uipath:context>
+            <uipath:input name="connectorKey" type="string" value="uipath-uipath-dataservice" />
+            <uipath:input name="connection" type="string" value="=bindings.bYstuCXCH" />
+            <uipath:input name="folderKey" type="string" value="=bindings.bP2BG6bW2" />
+            <uipath:input name="resourceKey" type="string" value="dadbf4ef-ed7b-4fbc-a166-f7d4bbbd1991" />
+            <uipath:input name="metadata" type="json"><![CDATA[{"designTimeMetadata":{"connectorLogoUrl":"https://cloud.uipath.com/elements_/scaleunit_/a6827719-5651-4da8-a093-6b3e05f247c7/v3/element/elements/uipath-uipath-dataservice/image","activityDesignerVersion":"2"},"metadataState":{},"telemetryData":{"connectorKey":"uipath-uipath-dataservice","connectorName":"Data Fabric"},"inputMetadata":{},"errorState":{"hasError":true},"bindings":[]}]]></uipath:input>
+          </uipath:context>
+          <uipath:input name="body" type="json" target="body"><![CDATA[{}]]></uipath:input>
+          <uipath:output name="Error" type="jsonSchema" source="=Error" var="error6" />
+        </uipath:event>
+      </bpmn:extensionElements>
+      <bpmn:outgoing>edge_4gytxb</bpmn:outgoing>
+      <bpmn:messageEventDefinition />
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="edge_k2gNUr" name="No Issue Found" sourceRef="Gateway_cDkTZP" targetRef="Activity_ueNp8g">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=!vars.outHasIssues</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="edge_Gateway_cDkTZP-Gateway_g3MwnL" name="Issue Found" sourceRef="Gateway_cDkTZP" targetRef="Gateway_g3MwnL">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=vars.outHasIssues</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="edge_Gateway_g3MwnL-Activity_dsbURm" name="Water Related Issue" sourceRef="Gateway_g3MwnL" targetRef="Activity_dsbURm">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=vars.outIssueCategory == "Fukt och Vattenskador"</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="edge_Gateway_g3MwnL-Activity_qg4FkK" name="Electricity Related Issue" sourceRef="Gateway_g3MwnL" targetRef="Activity_qg4FkK">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=vars.outIssueCategory == "Elfel eller osäkra installationer"</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="edge_eRGxks" sourceRef="Activity_h38PfQ" targetRef="Gateway_cDkTZP" />
+    <bpmn:sequenceFlow id="edge_PA5zyO" sourceRef="Activity_dsbURm" targetRef="Activity_izL6AS" />
+    <bpmn:sequenceFlow id="edge_7arNOR" sourceRef="Activity_qg4FkK" targetRef="Activity_izL6AS" />
+    <bpmn:sequenceFlow id="edge_4vcqma" sourceRef="Activity_izL6AS" targetRef="Event_cY6hFl" />
+    <bpmn:sequenceFlow id="edge_ARBB92" sourceRef="Activity_ueNp8g" targetRef="Activity_izL6AS" />
+    <bpmn:sequenceFlow id="edge_4gytxb" sourceRef="Event_nefqeU" targetRef="Activity_h38PfQ" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="S_Gateway_cDkTZP" bpmnElement="Gateway_cDkTZP">
+        <dc:Bounds x="891.0370677094012" y="193" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="891.0370677094012" y="248" width="50" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Activity_ueNp8g" bpmnElement="Activity_ueNp8g">
+        <dc:Bounds x="1209.17576795176" y="591.7791783814412" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1209.17576795176" y="676.7791783814412" width="100" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Gateway_g3MwnL" bpmnElement="Gateway_g3MwnL">
+        <dc:Bounds x="1038.7554707668332" y="193" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1038.7554707668332" y="248" width="50" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Activity_dsbURm" bpmnElement="Activity_dsbURm">
+        <dc:Bounds x="1209.17576795176" y="382.5071735974609" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1209.17576795176" y="467.5071735974609" width="100" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Activity_qg4FkK" bpmnElement="Activity_qg4FkK">
+        <dc:Bounds x="1212.6140927710717" y="-49.98792571884317" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1212.6140927710717" y="35.01207428115683" width="100" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Activity_h38PfQ" bpmnElement="Activity_h38PfQ">
+        <dc:Bounds x="674.7267766178671" y="178" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="674.7267766178671" y="263" width="100" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Event_cY6hFl" bpmnElement="Event_cY6hFl">
+        <dc:Bounds x="1709.5254428759688" y="190.9097080610168" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1709.5254428759688" y="231.9097080610168" width="36" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Activity_izL6AS" bpmnElement="Activity_izL6AS">
+        <dc:Bounds x="1449.2504615831" y="168.9097080610168" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1449.2504615831" y="253.9097080610168" width="100" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Event_nefqeU" bpmnElement="Event_nefqeU">
+        <dc:Bounds x="572" y="200" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="572" y="241" width="36" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_k2gNUr" bpmnElement="edge_k2gNUr">
+        <di:waypoint x="916" y="243" />
+        <di:waypoint x="916" y="632" />
+        <di:waypoint x="1209" y="632" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_Gateway_cDkTZP-Gateway_g3MwnL" bpmnElement="edge_Gateway_cDkTZP-Gateway_g3MwnL">
+        <di:waypoint x="941" y="218" />
+        <di:waypoint x="1039" y="218" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_Gateway_g3MwnL-Activity_dsbURm" bpmnElement="edge_Gateway_g3MwnL-Activity_dsbURm">
+        <di:waypoint x="1064" y="243" />
+        <di:waypoint x="1064" y="423" />
+        <di:waypoint x="1209" y="423" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_Gateway_g3MwnL-Activity_qg4FkK" bpmnElement="edge_Gateway_g3MwnL-Activity_qg4FkK">
+        <di:waypoint x="1064" y="193" />
+        <di:waypoint x="1064" y="-10" />
+        <di:waypoint x="1213" y="-10" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_eRGxks" bpmnElement="edge_eRGxks">
+        <di:waypoint x="775" y="218" />
+        <di:waypoint x="891" y="218" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_PA5zyO" bpmnElement="edge_PA5zyO">
+        <di:waypoint x="1309" y="423" />
+        <di:waypoint x="1379" y="423" />
+        <di:waypoint x="1379" y="209" />
+        <di:waypoint x="1449" y="209" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_7arNOR" bpmnElement="edge_7arNOR">
+        <di:waypoint x="1313" y="-10" />
+        <di:waypoint x="1499" y="-10" />
+        <di:waypoint x="1499" y="169" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_4vcqma" bpmnElement="edge_4vcqma">
+        <di:waypoint x="1549" y="209" />
+        <di:waypoint x="1710" y="209" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_ARBB92" bpmnElement="edge_ARBB92">
+        <di:waypoint x="1309" y="632" />
+        <di:waypoint x="1499" y="632" />
+        <di:waypoint x="1499" y="249" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_4gytxb" bpmnElement="edge_4gytxb">
+        <di:waypoint x="608" y="218" />
+        <di:waypoint x="674.7267766178671" y="218" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

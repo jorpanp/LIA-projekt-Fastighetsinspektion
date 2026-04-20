@@ -1,0 +1,28 @@
+{
+  "DocVersion": "1.0.0",
+  "StudioMinVersion": "2025.04.0",
+  "SolutionId": "4e9f1197-6638-4a68-8b76-08de3cb740ea",
+  "Projects": [
+    {
+      "Type": "Process",
+      "ProjectRelativePath": "Analyze Inspection/project.uiproj",
+      "Id": "085634d7-39c9-4a27-834c-9a56d0b191cf"
+    },
+    {
+      "Type": "Agent",
+      "ProjectRelativePath": "Water and Moisture - Agent/project.uiproj",
+      "Id": "b686ba75-bd8d-4cc9-9a79-c952644b1018"
+    },
+    {
+      "Type": "ProcessOrchestration",
+      "ProjectRelativePath": "Main Flow/project.uiproj",
+      "Id": "3c12d054-a7ed-4e92-9586-f8aef354ab60"
+    },
+    {
+      "Type": "Agent",
+      "ProjectRelativePath": "Electricity - Agent/project.uiproj",
+      "Id": "4dc01f7f-bb19-4a38-830f-64a4264e0d05"
+    }
+  ],
+  "AutomationHubIdeaUrl": null
+}

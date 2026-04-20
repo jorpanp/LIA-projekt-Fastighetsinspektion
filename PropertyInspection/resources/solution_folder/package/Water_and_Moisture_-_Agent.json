@@ -1,0 +1,26 @@
+{
+  "docVersion": "1.0.0",
+  "resource": {
+    "name": "Water and Moisture - Agent",
+    "kind": "package",
+    "apiVersion": "orchestrator.uipath.com/v1",
+    "projectKey": "b686ba75-bd8d-4cc9-9a79-c952644b1018",
+    "isOverridable": true,
+    "dependencies": [],
+    "runtimeDependencies": [],
+    "files": [],
+    "folders": [
+      {
+        "fullyQualifiedName": "solution_folder"
+      }
+    ],
+    "spec": {
+      "fileName": null,
+      "fileReference": null,
+      "name": "Water and Moisture - Agent",
+      "description": null
+    },
+    "locks": [],
+    "key": "4ea4b7b5-82c7-4c1f-9edb-12f9a509df6f"
+  }
+}
