@@ -1,0 +1,14 @@
+# Anslutningar med personliga e-postadresser
+resources/solution_folder/connection/
+
+# Storage buckets
+resources/solution_folder/bucket/
+
+# Debug-fil med känslig tenant-information
+debug_overwrites.json
+
+# Context-index med kundspecifik information
+**/resources/Context_*/
+
+# Känslig tenant information
+resources/solution_folder/appVersion/
